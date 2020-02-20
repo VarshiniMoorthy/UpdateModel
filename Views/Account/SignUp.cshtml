@@ -1,0 +1,77 @@
+﻿@model Account.Entity.Accounts
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<h2 align ="center">SignUp</h2>
+
+
+@using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+{
+
+    <table border="1" align="center">
+        <tr>
+            <td>
+                EmailId
+            </td>
+            <td>@Html.TextAreaFor(Model => Model.EmailId)</td>
+            <tr>
+            <td>
+                Password
+            </td>
+            <td>@Html.TextAreaFor(Model => Model.Password)</td>
+                </tr>
+        <tr>
+            <td>
+                Gender
+            </td>
+            <td>
+                Male:@Html.RadioButtonFor(Model => Model.Gender,"Male")
+                Female: @Html.RadioButtonFor(Model => Model.Gender, "Female")
+
+              
+   
+            </td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>@Html.TextAreaFor(Model => Model.Password)</td>
+        </tr>
+        <tr>
+            <td>
+                City
+            </td>
+            <td>
+            @Html.DropDownList("City", new List<SelectListItem>
+           {
+               new SelectListItem { Text = "Coimbatore", Value= "1"},
+               new SelectListItem{Text = "Trichy", Value="2"},
+               new SelectListItem{Text = "selam", Value = "3"}
+                }, "Select City")
+                </td>
+              
+        </tr>
+        <tr>
+            <td>PhoneNumber</td>
+            <td>@Html.TextAreaFor(Model => Model.PhoneNumber)</td>
+        </tr>
+        <tr>
+            <td>
+                Language Known
+            </td>
+            <td>
+                @Html.TextAreaFor(Model => Model.LanguageKnown)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+            <td>
+                <input type="button" onclick="" value="Login" />
+            </td>
+        </tr>
+    </table>
+
+}
